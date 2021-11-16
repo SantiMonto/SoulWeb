@@ -11,16 +11,6 @@ function registroUsuario() {
 
     const history = useHistory()
 
-    const handleClick = async (e) => {
-        e.preventDefault();
-        if (nombre && correo && password && password.length >= 6) {
-            crearUsuario(correo, password, nombre)
-            alert("Usuario registrado de forma exitosa")
-            history.push('/home')
-        }else{
-            alert("Verifique que todos los campos esten completos y que la contraseña sea mayor o igual a 6 digitos")
-        }
-    }
 
     return (
         <>
@@ -56,7 +46,6 @@ function registroUsuario() {
 
                     <div className="container mx-auto">
                         <button type="submit" className="btn btn-dark mr-3"
-                            onClick={handleClick}
                         >Registrar</button>
                         <Link to='/Login'>
                             <button type="reset" className="btn btn-dark">Cancelar</button>

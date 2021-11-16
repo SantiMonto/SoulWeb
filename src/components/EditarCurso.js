@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { consultarDocumentoDatabase, actualizarDocumentoDatabase } from '../conexion-bd/funciones';
 import { useHistory } from "react-router-dom";
 import "../style/formCursos.css"
 
@@ -16,63 +15,7 @@ function EditarCurso() {
     const [Costo, setCosto] = useState("");
     const [Estado, setEstado] = useState("");
 
-    const consultarCurso = async (idCurso) => {
-        const variables = await consultarDocumentoDatabase('cursos', idCurso)
-        setCurso(variables.Curso)
-        setArea(variables.Area)
-        setInstructor(variables.Instructor)
-        setCosto(variables.Costo)
-        setEstado(variables.Estado)
-    }
-
-    useEffect(() => {
-        consultarCurso(id)
-    }, [id])
-
-    const handleCancelar = (e) => {
-        e.preventDefault()
-        history.push('/cursos')
-    }
-
-    const handleActualizarCurso = async (e)=>{
-        e.preventDefault()
-        const updatedCurso = {
-            Curso,
-            Area,
-            Instructor,
-            Costo,
-            Estado
-        }
-        await actualizarDocumentoDatabase('cursos', id, updatedCurso)
-        alert('Curso modificado de manera exitosa')
-        history.push('/cursos')
-    }
-
-    const updateCurso = (event) => {
-        event.preventDefault();
-
-        const elementsArray = [...event.target.elements];
-        const formData = elementsArray.reduce((accumulator, currentValue) => {
-            if(currentValue.id){
-                accumulator[currentValue.id] = currentValue.value;
-            }
-            return accumulator
-        }, {})
-
-        const sendChanges = async () => {
-            const respuestaTemporal = await actualizarDocumentoDatabase('cursos', id, formData);
-        }
-
-        if(formData.Curso && formData.Area && formData.Instructor && formData.Costo && formData.Estado){
-            sendChanges();
-            alert("El curso fue actualizado satisfactoriamente")
-        } else{
-            alert("Faltan campos por introducir")
-        }  
-
-        history.push('/cursos');
-    }
-
+   
     return(
         <>
         <div className="content-wrapper">
@@ -122,8 +65,8 @@ function EditarCurso() {
                             </tr>
                         </tbody>
                         <tfoot className="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button className="btn btn-success mt-2" onClick={handleActualizarCurso}>Actualizar</button>
-                            <button className="btn btn-danger mt-2" onClick={handleCancelar}>Cancelar</button>
+                            <button className="btn btn-success mt-2">Actualizar</button>
+                            <button className="btn btn-danger mt-2">Cancelar</button>
                         </tfoot>
                     </table>
                 </div>
