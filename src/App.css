@@ -1,49 +1,38 @@
-.Logo {
+.App {
   text-align: center;
 }
 
-.Paragraph_120{
-  font-size: 110%;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-
-.buttonRegistrarVentas{
-  margin-left: 1rem; 
-  font-size: 40%;
-
-}
-.styleTable{
-  font-size: 40%;
-}
-.lds-dual-ring {
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-  margin-top: 13rem;
-  margin-left: 60rem; 
-
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-.table-scroll {
-  /* height:700px; */
-  overflow:auto;  
-
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.divPrinciplaRV{
-  width: 101rem;
-  left: -15rem;
-  top:1rem;
-
-
-}
-.inputSO{
-  max-width: 141px; 
-  left: 1.7rem; 
-  top:1rem
+.App-link {
+  color: #61dafb;
 }
 
-.inputClient{
-  left: 2rem; 
-  top:1rem
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
