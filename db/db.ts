@@ -1,6 +1,6 @@
 import { connect } from 'mongoose';
 
-export const conectarBD = async () =>{
+const conectarBD = async () =>{
     return await connect(
         'mongodb+srv://smonto:smonto123456@proyectociclo4.d8zw9.mongodb.net/GestionProyectos?retryWrites=true&w=majority'
     )
@@ -11,3 +11,5 @@ export const conectarBD = async () =>{
         console.error('Error conectando a la BD',e);
     })
 }
+
+export default conectarBD;
