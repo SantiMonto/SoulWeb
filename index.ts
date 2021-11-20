@@ -23,20 +23,63 @@ const main = async () =>{
 
 //     })
 // }
+}
 
 //Abajo se encuentra el CRUD de usuario
 
-await UserModel.create({
-        correo: "gmontoya@gmail.com",
-        identificacion: "456",
-        nombre: "Guillermo",
-        apellido: "montoya",
-        rol: Enum_Rol.administrador
-    }).then((u) => {
-        console.log("Usuario creado",u)
-    }).catch((e) => {
-        console.error("Error creando el usuario",e);
-    })
-}
+// await UserModel.create({
+//         correo: "gmontoya@gmail.com",
+//         identificacion: "456",
+//         nombre: "Guillermo",
+//         apellido: "montoya",
+//         rol: Enum_Rol.administrador
+//     }).then((u) => {
+//         console.log("Usuario creado",u)
+//     }).catch((e) => {
+//         console.error("Error creando el usuario",e);
+//     })
+
+
+// OBTENER LOS USUARIOS
+// await UserModel.find()
+//   .then((u) => {
+//     console.log('usuarios', u);
+//   })
+//   .catch((e) => {
+//     console.error('error obteniendo los usuarios', e);
+//   });
+
+// OBTENER UN SOLO USUARIO
+// await UserModel.findOne({ identificacion: '16546' })
+//   .then((u) => {
+//     console.log('usuario encontrado', u);
+//   })
+//   .catch((e) => {
+//     console.error(e);
+//   });
+
+// EDITAR UN USUARIO
+// await UserModel.findOneAndUpdate(
+//   { correo: 'dsl@cc.com' },
+//   {
+//     nombre: 'Juan',
+//     apellido: 'López',
+//   }
+// )
+//   .then((u) => {
+//     console.log('usuario actualizado', u);
+//   })
+//   .catch((e) => {
+//     console.error('Error actualizando', e);
+//   });
+
+// ELIMINAR UN USUARIO
+// await UserModel.findOneAndDelete({ correo: 'dsl@cc.com' })
+//   .then((u) => {
+//     console.log('usuario eliminado: ', u);
+//   })
+//   .catch((e) => {
+//     console.error(e);
+//   });
 
 main();
