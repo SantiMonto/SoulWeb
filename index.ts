@@ -13,32 +13,30 @@ const main = async () =>{
     // });
 
 
-    ProjectModel.create({
-        nombre:"Proyecto 3",
-        presupuesto: 8000000,
-        fechaInicio: Date.now(),
-        fechaFin: new Date("2022/07/19"),
-        lider:"61971a6dfd00f05bec564674",
-        objetivos:["619853d09f65d42ed06f6835","6198541ff750d67d362c02ae"],
+//     ProjectModel.create({
+//         nombre:"Proyecto 3",
+//         presupuesto: 8000000,
+//         fechaInicio: Date.now(),
+//         fechaFin: new Date("2022/07/19"),
+//         lider:"61971a6dfd00f05bec564674",
+//         objetivos:["619853d09f65d42ed06f6835","6198541ff750d67d362c02ae"],
 
-    })
-}
-
-    
-
-
-main();
+//     })
+// }
 
 //Abajo se encuentra el CRUD de usuario
 
-// await UserModel.create({
-    //     correo: "smonto@gmail.com",
-    //     identificacion: "123456",
-    //     nombre: "santiago",
-    //     apellido: "montoya",
-    //     rol: Enum_Rol.administrador
-    // }).then((u) => {
-    //     console.log("Usuario creado",u)
-    // }).catch((e) => {
-    //     console.error("Error creando el usuario",e);
-    // })
+await UserModel.create({
+        correo: "gmontoya@gmail.com",
+        identificacion: "456",
+        nombre: "Guillermo",
+        apellido: "montoya",
+        rol: Enum_Rol.administrador
+    }).then((u) => {
+        console.log("Usuario creado",u)
+    }).catch((e) => {
+        console.error("Error creando el usuario",e);
+    })
+}
+
+main();
