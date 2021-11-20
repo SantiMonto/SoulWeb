@@ -22,4 +22,9 @@ enum Enum_FaseProyecto{
 
 }
 
-export {Enum_Rol,Enum_EstadoProyecto,Enum_FaseProyecto};
+enum Enum_TipoObjetivo{
+    general ="General",
+    especifico = "Especifico"
+}
+
+export {Enum_Rol,Enum_EstadoProyecto,Enum_FaseProyecto,Enum_TipoObjetivo};
