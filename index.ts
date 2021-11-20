@@ -1,6 +1,6 @@
 import conectarBD from "./db/db";
 import {UserModel} from "./modelos/user";
-import { Enum_Rol, Enum_TipoObjetivo } from "./modelos/enums";
+import { Enum_Rol, Enum_TipoObjetivo,Enum_EstadoUsuario } from "./modelos/enums";
 import { ProjectModel } from "./modelos/project";
 import { ObjetivoModel } from "./modelos/objetivo";
 
@@ -23,22 +23,22 @@ const main = async () =>{
 
 //     })
 // }
-}
+
 
 //Abajo se encuentra el CRUD de usuario
 
-// await UserModel.create({
-//         correo: "gmontoya@gmail.com",
-//         identificacion: "456",
-//         nombre: "Guillermo",
-//         apellido: "montoya",
-//         rol: Enum_Rol.administrador
-//     }).then((u) => {
-//         console.log("Usuario creado",u)
-//     }).catch((e) => {
-//         console.error("Error creando el usuario",e);
-//     })
-
+await UserModel.create({
+        correo: "gmontoya@gmail.com",
+        identificacion: "678",
+        nombre: "Guillermo",
+        apellido: "Montoya",
+        rol: Enum_Rol.administrador
+    }).then((u) => {
+        console.log("Usuario creado",u)
+    }).catch((e) => {
+        console.error("Error creando el usuario",e);
+    })
+}
 
 // OBTENER LOS USUARIOS
 // await UserModel.find()
