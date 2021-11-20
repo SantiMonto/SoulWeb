@@ -1,8 +1,7 @@
 import {Schema, model} from 'mongoose';
-import { Enum_EstadoProyecto, Enum_FaseProyecto } from './enums';
+import { Enum_EstadoProyecto, Enum_FaseProyecto, Enum_TipoObjetivo } from './enums';
 import { ObjetivoModel } from './objetivo';
 import { UserModel } from './user';
-
 
 interface Proyecto{
     nombre:string;
@@ -12,9 +11,7 @@ interface Proyecto{
     estado:Enum_EstadoProyecto;
     fase:Enum_FaseProyecto;
     lider:Schema.Types.ObjectId;
-    objetivos:[Schema.Types.ObjectId];
-
-
+    objetivos:[{descripcion:string, tipo:Enum_TipoObjetivo}];
 }
 
 const projectSchema = new Schema<Proyecto>({
@@ -52,15 +49,17 @@ const projectSchema = new Schema<Proyecto>({
     },
     objetivos:[
         {
-            type:Schema.Types.ObjectId,
-            ref: ObjetivoModel,
-        }
+            descripcion: {
+                type: String,
+                require: true,
+            },
+            tipo: {
+                type: String,
+                enum: Enum_TipoObjetivo,
+                require: true,
+            },
+        },
     ]
-        
-
-        
-    
-
 });
 
 const ProjectModel = model("proyecto",projectSchema);
