@@ -6,4 +6,20 @@ enum Enum_Rol{
     administrador = 'Administristrador'
 }
 
-export {Enum_Rol};
+
+
+enum Enum_EstadoProyecto{
+    activo = "Activo",
+    inactivo = "Inactivo"
+
+}
+
+enum Enum_FaseProyecto{
+    iniciado = "Iniciado",
+    desarrollado = "Desarrollado",
+    terminado = "Terminado",
+    nula = ""
+
+}
+
+export {Enum_Rol,Enum_EstadoProyecto,Enum_FaseProyecto};
