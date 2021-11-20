@@ -14,7 +14,13 @@ interface User{
 const userSchema = new Schema <User>({
     correo:{
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        validate: {
+            validator: (email) =>{
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+            }
+        }
     },
     identificacion:{
         type: String,
