@@ -1,7 +1,13 @@
 enum Enum_Rol{
-    estudiante = 'Estudiante',
-    lider = 'Lider',
-    administrador = 'Administrador'
+    ESTUDIANTE = 'Estudiante',
+    LIDER = 'Lider',
+    ADMINISTRADOR = 'Administrador'
+}
+
+enum Enum_EstadoUsuario{
+    PENDIENTE = "PENDIENTE",
+    AUTORIZADO = "AUTORIZADO",
+    NO_AUTORIZADO= "NO AUTORIZADO",
 }
 
 enum Enum_EstadoProyecto{
@@ -26,4 +32,4 @@ enum Enum_EstadoInscripcion{
 
 }
 
-export {Enum_Rol,Enum_EstadoProyecto,Enum_FaseProyecto,Enum_TipoObjetivo,Enum_EstadoInscripcion};
+export {Enum_Rol,Enum_EstadoProyecto,Enum_FaseProyecto,Enum_TipoObjetivo,Enum_EstadoInscripcion,Enum_EstadoUsuario};
