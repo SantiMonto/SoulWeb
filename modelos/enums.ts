@@ -1,7 +1,7 @@
 enum Enum_Rol{
-    ESTUDIANTE = 'Estudiante',
-    LIDER = 'Lider',
-    ADMINISTRADOR = 'Administrador'
+    ESTUDIANTE = 'ESTUDIANTE',
+    LIDER = 'LIDER',
+    ADMINISTRADOR = 'ADMINISTRADOR'
 }
 
 enum Enum_EstadoUsuario{
