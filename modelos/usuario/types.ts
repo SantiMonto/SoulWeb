@@ -33,6 +33,11 @@ type Mutation {
         correo: String!
         password: String!
     ): Usuario
+
+    cambioEstadoUsuario(
+        _id: String!
+        estado: Enum_EstadoUsuario
+    ): Usuario
 }
 
 `;

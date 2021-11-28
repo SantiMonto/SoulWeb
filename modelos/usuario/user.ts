@@ -7,7 +7,7 @@ interface User{
     nombre: string;
     apellido: string;
     rol: Enum_Rol;
-    estado:Enum_EstadoUsuario;
+    estado: Enum_EstadoUsuario;
     password: string;
 }
 
@@ -52,6 +52,6 @@ const userSchema = new Schema <User>({
     },
 })
 
-const UserModel = model('User',userSchema);
+const UserModel = model('User', userSchema);
 
 export {UserModel};

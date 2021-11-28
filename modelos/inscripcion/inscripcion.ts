@@ -3,17 +3,14 @@ import { Enum_EstadoInscripcion } from '../enums/enums';
 import { ProjectModel } from '../proyecto/project';
 import { UserModel } from '../usuario/user';
 
-
-
 interface Inscripcion{
-
-    proyecto:Schema.Types.ObjectId;
-    estudiante:Schema.Types.ObjectId;
-    estado:Enum_EstadoInscripcion;
+    proyecto: Schema.Types.ObjectId;
+    estudiante: Schema.Types.ObjectId;
+    estado: Enum_EstadoInscripcion;
     fechaInicio: Date;
-    fechaFin:Date;
-    
+    fechaFin: Date;
 }
+
 const inscripcionSchema = new Schema<Inscripcion>({
     proyecto:{
         type: Schema.Types.ObjectId,
@@ -21,7 +18,7 @@ const inscripcionSchema = new Schema<Inscripcion>({
     },
     estudiante:{
         type: Schema.Types.ObjectId,
-        ref:UserModel,
+        ref: UserModel,
     },
     estado:{
         type: String,
@@ -29,12 +26,15 @@ const inscripcionSchema = new Schema<Inscripcion>({
         required: true, 
     },
     fechaInicio:{
-        type:Date,
-        required:true,
+        type: Date,
+        required: true,
     },
     fechaFin:{
-        type:Date,
-        required:true,
+        type: Date,
+        required: true,
     },
 });
+
 const InscripcionModel = model("Inscripcion", inscripcionSchema)
+
+export { InscripcionModel }

@@ -6,6 +6,11 @@ const resolversUser = {
         const usuarios = await UserModel.find()
         return usuarios
         },
+
+        Usuario: async (parent, args) => {
+            const usuario = await UserModel.findOne({ _id: args._id })
+            return usuario
+        }
     },
 
     Mutation: {
@@ -30,6 +35,16 @@ const resolversUser = {
               },
               { new: true });
               return usuarioEditado
+        },
+
+        cambioEstadoUsuario: async (parent, args) => {
+            const usuarioEditado = await UserModel.findByIdAndUpdate(
+                args._id,
+                {
+                 estado: args.estado
+                },
+                {new: true})
+                return usuarioEditado
         }
     }
 }
