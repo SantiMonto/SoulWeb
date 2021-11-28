@@ -1,9 +1,9 @@
 import conectarBD from "./db/db";
-import {UserModel} from "./modelos/user";
-import { Enum_Rol, Enum_TipoObjetivo } from "./modelos/enums";
-import { ProjectModel } from "./modelos/project";
-import { ObjetivoModel } from "./modelos/objetivo";
-import { AvanceModel} from "./modelos/avances"
+import {UserModel} from "./modelos/usuario/user";
+import { Enum_Rol, Enum_TipoObjetivo } from "./modelos/enums/enums";
+import { ProjectModel } from "./modelos/proyecto/project";
+import { ObjetivoModel } from "./modelos/objetivo/objetivo";
+import { AvanceModel} from "./modelos/avance/avances"
 
 const main = async () =>{
     await conectarBD();
