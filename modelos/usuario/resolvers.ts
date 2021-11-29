@@ -1,3 +1,4 @@
+import { Enum_EstadoUsuario } from '../enums/enums'
 import { UserModel } from './user'
 
 const resolversUser = {
@@ -31,6 +32,8 @@ const resolversUser = {
                 args._id,
               {
                 correo: args.correo,
+                rol: args.rol,
+                estado: Enum_EstadoUsuario.PENDIENTE,
                 password: args.password,
               },
               { new: true });

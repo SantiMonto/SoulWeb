@@ -31,12 +31,13 @@ type Mutation {
     editarUsuario(
         _id: String!
         correo: String!
+        rol: Enum_Rol!
         password: String!
     ): Usuario
 
     cambioEstadoUsuario(
         _id: String!
-        estado: Enum_EstadoUsuario
+        estado: Enum_EstadoUsuario!
     ): Usuario
 }
 
