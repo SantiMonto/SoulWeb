@@ -1,4 +1,5 @@
 import { ProjectModel } from "./project";
+import { Enum_EstadoProyecto } from '../enums/enums'
 
 const resolversProject = {
     Query: {
@@ -10,6 +11,18 @@ const resolversProject = {
         Proyecto: async (parent, args) => {
             const proyecto = await ProjectModel.findOne({ _id: args._id })
             return proyecto
+        }
+    },
+
+    Mutation: {
+        cambiarEstadoProyecto: async (parent, args) => {
+            const usuarioEditado = await ProjectModel.findByIdAndUpdate(
+                args._id,
+                {
+                    estado: Enum_EstadoProyecto.ACTIVO
+                },
+                { new: true })
+                return usuarioEditado
         }
     }
 }

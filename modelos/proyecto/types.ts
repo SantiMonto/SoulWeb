@@ -25,6 +25,13 @@ type Query {
     Proyecto(_id: String!): Proyecto
 }
 
+type Mutation {
+    cambiarEstadoProyecto(
+        _id: String!
+        estado: Enum_EstadoProyecto!
+    ): Proyecto
+}
+
 `;
 
 export { typesProject }
