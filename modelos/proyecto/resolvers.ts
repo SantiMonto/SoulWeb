@@ -32,7 +32,7 @@ const resolversProject = {
             return cambioEstado
         },
         actFaseProyecto: async (parent, args) => {
-            const cambioFase = await ProjectModel.findOneAndUpdate(args._id, {
+            const cambioFase = await ProjectModel.findByIdAndUpdate(args._id, {
                 fase: Enum_FaseProyecto.TERMINADO
             },
             {new:true})
