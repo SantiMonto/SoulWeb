@@ -30,7 +30,22 @@ type Mutation {
         _id: String!
         estado: Enum_EstadoProyecto!
     ): Proyecto
+
+
+    actEstadoProyecto(
+        _id: String!
+        estado: Enum_EstadoProyecto!
+
+    ): Proyecto
+
+    actFaseProyecto(
+        _id: String!
+        fase: Enum_FaseProyecto!
+    ): Proyecto
+    
+
 }
+
 
 `;
 
