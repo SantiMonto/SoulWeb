@@ -4,8 +4,8 @@ import { UserModel } from './user'
 const resolversUser = {
     Query: {
         Usuarios: async (parent, args) => {
-        const usuarios = await UserModel.find()
-        return usuarios
+            const usuarios = await UserModel.find()
+            return usuarios
         },
 
         Usuario: async (parent, args) => {
@@ -30,24 +30,24 @@ const resolversUser = {
         editarUsuario: async (parent, args) => {
             const usuarioEditado = await UserModel.findByIdAndUpdate(
                 args._id,
-              {
-                correo: args.correo,
-                rol: args.rol,
-                estado: Enum_EstadoUsuario.PENDIENTE,
-                password: args.password,
-              },
-              { new: true });
-              return usuarioEditado
+                {
+                    correo: args.correo,
+                    rol: args.rol,
+                    estado: Enum_EstadoUsuario.PENDIENTE,
+                    password: args.password,
+                },
+                { new: true });
+            return usuarioEditado
         },
 
         cambioEstadoUsuario: async (parent, args) => {
             const usuarioEditado = await UserModel.findByIdAndUpdate(
                 args._id,
                 {
-                 estado: args.estado
+                    estado: args.estado
                 },
-                {new: true})
-                return usuarioEditado
+                { new: true })
+            return usuarioEditado
         }
     }
 }

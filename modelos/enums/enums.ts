@@ -29,7 +29,8 @@ enum Enum_TipoObjetivo{
 
 enum Enum_EstadoInscripcion{
     ACEPTADA = "ACEPTADA",
-    RECHAZADA = "RECHAZADA"
+    RECHAZADA = "RECHAZADA",
+    PENDIENTE = "PENDIENTE"
 }
 
 export {

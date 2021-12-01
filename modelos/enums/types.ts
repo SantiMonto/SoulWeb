@@ -33,7 +33,8 @@ enum Enum_TipoObjetivo{
 
 enum Enum_EstadoInscripcion{
     ACEPTADA
-    RECHAZADAS
+    RECHAZADA
+    PENDIENTE
 }
 
 `;

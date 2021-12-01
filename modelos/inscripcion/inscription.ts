@@ -23,15 +23,16 @@ const inscripcionSchema = new Schema<Inscripcion>({
     estado:{
         type: String,
         enum: Enum_EstadoInscripcion,
-        required: true, 
+        required: false,
+        default: Enum_EstadoInscripcion.PENDIENTE
     },
     fechaInicio:{
         type: Date,
-        required: true,
+        required: false,
     },
     fechaFin:{
         type: Date,
-        required: true,
+        required: false,
     },
 });
 
