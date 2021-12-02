@@ -37,6 +37,19 @@ const resolversProject = {
             },
             {new:true})
             return cambioFase
+        },
+        crearProyecto: async (parent, args) => {
+            const proyectoNuevo = await ProjectModel.create({
+                nombre: args.nombre,
+                presupuesto: args.presupuesto,
+                fechaInicio: args.fechaInicio,
+                fechaFin: args.fechaFin,
+                estado: args.estado,
+                fase: args.fase,
+                lider: args.lider,
+                objetivos: args.objetivos
+            });
+            return proyectoNuevo;
         }
     }
 }
