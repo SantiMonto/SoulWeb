@@ -16,6 +16,8 @@ type Usuario{
 type Query {
     Usuarios: [Usuario]
     Usuario(_id: String!): Usuario
+
+    consultarEstudiantes: [Usuario]
 }
 
 type Mutation {
@@ -36,6 +38,11 @@ type Mutation {
     ): Usuario
 
     cambioEstadoUsuario(
+        _id: String!
+        estado: Enum_EstadoUsuario!
+    ): Usuario
+
+    cambioEstadoEstudiante(
         _id: String!
         estado: Enum_EstadoUsuario!
     ): Usuario

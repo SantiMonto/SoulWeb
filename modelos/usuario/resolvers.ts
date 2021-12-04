@@ -1,4 +1,5 @@
 import { Enum_EstadoUsuario } from '../enums/enums'
+import { Enum_Rol } from '../enums/enums'
 import { UserModel } from './user'
 
 const resolversUser = {
@@ -11,6 +12,11 @@ const resolversUser = {
         Usuario: async (parent, args) => {
             const usuario = await UserModel.findOne({ _id: args._id })
             return usuario
+        },
+
+        consultarEstudiantes: async (parent, args) => {
+            const estudiantes = await UserModel.find({rol: Enum_Rol.ESTUDIANTE})
+            return estudiantes
         }
     },
 
@@ -41,6 +47,16 @@ const resolversUser = {
         },
 
         cambioEstadoUsuario: async (parent, args) => {
+            const usuarioEditado = await UserModel.findByIdAndUpdate(
+                args._id,
+                {
+                    estado: args.estado
+                },
+                { new: true })
+            return usuarioEditado
+        },
+
+        cambioEstadoEstudiante: async (parent, args) => {
             const usuarioEditado = await UserModel.findByIdAndUpdate(
                 args._id,
                 {
