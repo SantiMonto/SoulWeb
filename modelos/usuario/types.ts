@@ -11,13 +11,14 @@ type Usuario{
     rol: Enum_Rol!
     estado: Enum_EstadoUsuario
     password: String!
+    proyectosLiderados: [Proyecto]
 }
 
 type Query {
     Usuarios: [Usuario]
     Usuario(_id: String!): Usuario
-
     consultarEstudiantes: [Usuario]
+    consultarProyectosLiderados(_id: String!): [Usuario]
 }
 
 type Mutation {
