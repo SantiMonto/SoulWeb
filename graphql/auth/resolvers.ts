@@ -1,5 +1,6 @@
 import { UserModel } from "../../modelos/usuario/user";
 import bcrypt from "bcrypt";
+import { generateToken } from "../../utils/tokenUtils";
 
 
 const resolversAutenticacion = {
@@ -13,9 +14,14 @@ const resolversAutenticacion = {
                 identificacion: args.identificacion,
                 correo: args.correo,
                 rol: args.rol,
-                password: args.password,
+                password: hashedPassword,
             });
-            return "Usuario creado";
+            console.log('Usuario creado');
+            return {
+                token: generateToken({
+                    
+                }),
+            }
         }
     }
 };
