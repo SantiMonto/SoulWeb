@@ -5,7 +5,7 @@ import { generateToken } from "../../utils/tokenUtils";
 
 const resolversAutenticacion = {
     Mutation: {
-        registro: async (parent,args) =>{
+        registro: async (parent, args) => {
             const salt = await bcrypt.gensalt(10);
             const hashedPassword = await bcrypt.hash(args.password, salt);
             const usuarioCreado = await UserModel.create({
@@ -19,11 +19,16 @@ const resolversAutenticacion = {
             console.log('Usuario creado');
             return {
                 token: generateToken({
-                    
+                    _id: usuarioCreado._id,
+                    nombre: usuarioCreado.nombre,
+                    apellido: usuarioCreado.apellido,
+                    identificacion: usuarioCreado.identificacion,
+                    correo: usuarioCreado.correo,
+                    rol: usuarioCreado.rol,
                 }),
             }
         }
     }
 };
 
-export {resolversAutenticacion};
+export { resolversAutenticacion };
