@@ -23,10 +23,6 @@ const userSchema = new Schema <User>({
             message: 'El formato del correo electrónico es inválido',
         }
     },
-    password: {
-        type: String,
-        required: true,
-    },
     identificacion:{
         type: String,
         required: true,
