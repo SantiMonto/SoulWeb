@@ -4,6 +4,7 @@ import { typesUser } from '../modelos/usuario/types'
 import { typesProject } from '../modelos/proyecto/types';
 import { typesInscripcion } from '../modelos/inscripcion/types';
 import { typesAvances } from '../modelos/avance/types';
+import { typesAutenticacion } from './auth/types';
 
 const globalTypes = gql`
   scalar Date
@@ -15,5 +16,6 @@ export const types = [
     typesUser,
     typesProject,
     typesInscripcion,
-    typesAvances
+    typesAvances,
+    typesAutenticacion
 ]
