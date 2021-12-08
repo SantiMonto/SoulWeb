@@ -6,6 +6,11 @@ const resolversInscripcion = {
         Inscripciones: async (parent, args) => {
             const inscripciones = await InscripcionModel.find();
             return inscripciones;
+        },
+        SolicitudesPendientes: async (parent, args) => {
+            const solicitudes = await InscripcionModel.find({ estado: Enum_EstadoInscripcion.PENDIENTE })
+            return solicitudes
+
         }
     },
 
@@ -16,7 +21,27 @@ const resolversInscripcion = {
                 estudiante: args.Usuario,
             })
             return nuevaInscripcion;
-        }
+        },
+
+        aprobarInscripcion: async (parent, args) => {
+            const inscripcionAprobada = await InscripcionModel.findByIdAndUpdate(args.id, {
+                estado: Enum_EstadoInscripcion.ACEPTADA,
+                fechaIngreso: Date.now(),
+            },
+                { new: true }
+            );
+            return inscripcionAprobada;
+        },
+        rechazarInscripcion: async (parent, args) => {
+            const inscripcionRechazada = await InscripcionModel.findByIdAndUpdate(args.id, {
+                estado: Enum_EstadoInscripcion.RECHAZADA,
+                fechaIngreso: Date.now(),
+            },
+                { new: true }
+            );
+            return inscripcionRechazada;
+        },
+
     }
 }
 

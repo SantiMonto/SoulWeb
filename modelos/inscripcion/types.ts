@@ -2,6 +2,7 @@ import { gql } from 'apollo-server-express'
 
 const typesInscripcion = gql`
 
+
 type Inscripcion {
     _id: ID!
     proyecto: Proyecto!
@@ -13,6 +14,7 @@ type Inscripcion {
 
 type Query {
     Inscripciones: [Inscripcion]
+    SolicitudesPendientes: [Inscripcion]
 }
 
 type Mutation {
@@ -20,6 +22,8 @@ type Mutation {
         proyecto: String!
         estudiante: String!
     ): Inscripcion
+    aprobarInscripcion(id: String!): Inscripcion
+    rechazarInscripcion(id: String!): Inscripcion
 }
 
 `;
