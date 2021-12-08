@@ -33,7 +33,7 @@ const resolversUser = {
                 identificacion: args.identificacion,
                 correo: args.correo,
                 rol: args.rol,
-                password: args.password,
+                password: args.password
             })
             return usuarioCreado
         },
