@@ -64,6 +64,11 @@ const projectSchema = new Schema<Proyecto>({
     toObject: { virtuals: true }, // So `console.log()` and other functions that use `toObject()` include virtuals
   }
 );
+projectSchema.virtual('inscripciones', {
+    ref: 'Inscripcion',
+    localField: '_id',
+    foreignField: 'proyecto',
+  });
 
 const ProjectModel = model("Proyecto", projectSchema);
 

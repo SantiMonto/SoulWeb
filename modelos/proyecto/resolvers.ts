@@ -4,7 +4,7 @@ import { Enum_EstadoProyecto, Enum_FaseProyecto } from '../enums/enums'
 const resolversProject = {
     Query: {
         Proyectos: async (parent, args) => {
-            const proyectos = await ProjectModel.find().populate('lider')
+            const proyectos = await ProjectModel.find().populate('lider').populate('inscripciones')
             return proyectos
         },
 
