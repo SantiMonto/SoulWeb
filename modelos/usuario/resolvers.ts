@@ -42,10 +42,11 @@ const resolversUser = {
             const usuarioEditado = await UserModel.findByIdAndUpdate(
                 args._id,
                 {
+                    nombre:args.nombre,
+                    apellido:args.apellido,
+                    identificacion: args.identificacion,
                     correo: args.correo,
-                    rol: args.rol,
-                    estado: Enum_EstadoUsuario.PENDIENTE,
-                    password: args.password,
+                    estado: args.estado,
                 },
                 { new: true });
             return usuarioEditado
