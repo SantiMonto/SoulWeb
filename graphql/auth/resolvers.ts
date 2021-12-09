@@ -28,7 +28,8 @@ const resolversAutenticacion = {
             };
         },
         login: async (parent,args)=>{
-            console.log(args);
+            const usuarioLogueado = await UserModel.find({correo:args.correo})
+            console.log(usuarioLogueado);
             return{
                 token: "hola soy el token"
             }
