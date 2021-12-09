@@ -27,11 +27,20 @@ const resolversAutenticacion = {
                 }),
             };
         },
-        login: async (parent,args)=>{
-            const usuarioLogueado = await UserModel.find({correo:args.correo})
-            console.log(usuarioLogueado);
-            return{
-                token: "hola soy el token"
+        login: async (parent, args) => {
+            const usuarioLogueado = await UserModel.findOne({ correo: args.correo });
+            if (await bcrypt.compare(args.password, usuarioLogueado.password)) {
+                console.log(usuarioLogueado);
+                return {
+                    token: generateToken({
+                        _id: usuarioLogueado._id,
+                        nombre: usuarioLogueado.nombre,
+                        apellido: usuarioLogueado.apellido,
+                        identificacion: usuarioLogueado.identificacion,
+                        correo: usuarioLogueado.correo,
+                        rol: usuarioLogueado.rol,
+                    }),
+                }
             }
         }
     },
