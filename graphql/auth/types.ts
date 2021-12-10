@@ -22,6 +22,10 @@ const typesAutenticacion = gql`
             correo: String!
             password: String!
         ):Token!
+
+        refreshToken(
+            token: String!
+        ):Token
     }
 `;
 
