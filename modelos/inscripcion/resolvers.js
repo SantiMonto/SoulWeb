@@ -1,5 +1,4 @@
-import { InscripcionModel } from "./inscription";
-import { Enum_EstadoInscripcion } from "../enums/enums";
+import { InscripcionModel } from "./inscription.js"
 
 const resolversInscripcion = {
     Query: {
@@ -8,7 +7,7 @@ const resolversInscripcion = {
             return inscripciones;
         },
         SolicitudesPendientes: async (parent, args) => {
-            const solicitudes = await InscripcionModel.find({ estado: Enum_EstadoInscripcion.PENDIENTE })
+            const solicitudes = await InscripcionModel.find({ estado: 'PENDIENTE' })
             return solicitudes
 
         }
@@ -25,7 +24,7 @@ const resolversInscripcion = {
 
         aprobarInscripcion: async (parent, args) => {
             const inscripcionAprobada = await InscripcionModel.findByIdAndUpdate(args.id, {
-                estado: Enum_EstadoInscripcion.ACEPTADA,
+                estado: 'ACEPTADA',
                 fechaIngreso: Date.now(),
             },
                 { new: true }
@@ -34,7 +33,7 @@ const resolversInscripcion = {
         },
         rechazarInscripcion: async (parent, args) => {
             const inscripcionRechazada = await InscripcionModel.findByIdAndUpdate(args.id, {
-                estado: Enum_EstadoInscripcion.RECHAZADA,
+                estado: 'RECHAZADA',
                 fechaIngreso: Date.now(),
             },
                 { new: true }

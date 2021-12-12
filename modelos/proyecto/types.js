@@ -64,7 +64,6 @@ type Mutation {
 
 }
 
-
 `;
 
 export { typesProject }

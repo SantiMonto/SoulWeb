@@ -2,7 +2,6 @@ import { gql } from 'apollo-server-express'
 
 const typesInscripcion = gql`
 
-
 type Inscripcion {
     _id: ID!
     proyecto: Proyecto!
