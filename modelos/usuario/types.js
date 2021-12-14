@@ -42,6 +42,12 @@ const typesUser = gql`
       correo: String!
       estado: Enum_EstadoUsuario!
     ): Usuario
+    editarUsuarioInd(
+      _id: String!
+      correo: String!
+      estado: Enum_EstadoUsuario!
+      rol: Enum_Rol!
+    ): Usuario
     eliminarUsuario(_id: String, correo: String): Usuario
   }
 `;
