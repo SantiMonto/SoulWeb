@@ -30,19 +30,19 @@ const resolversInscripcion = {
         },
     
         // inscripcionesNoAprobadas: async () => {
-        //   const ina = await InscriptionModel.find({ estado: 'PENDIENTE' }).populate('estudiante');
+        //   const ina = await InscripcionModel.find({ estado: 'PENDIENTE' }).populate('estudiante');
         // },
       },
       Mutation: {
         crearInscripcion: async (parent, args) => {
-          const inscripcionCreada = await InscriptionModel.create({
+          const inscripcionCreada = await InscripcionModel.create({
             proyecto: args.proyecto,
             estudiante: args.estudiante,
           });
           return inscripcionCreada;
         },
         aprobarInscripcion: async (parent, args) => {
-          const inscripcionAprobada = await InscriptionModel.findByIdAndUpdate(
+          const inscripcionAprobada = await InscripcionModel.findByIdAndUpdate(
             args.id,
             {
               estado: 'ACEPTADO',
