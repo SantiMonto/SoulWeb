@@ -11,11 +11,11 @@ const inscripcionSchema = new Schema({
     default: 'PENDIENTE',
     required: true,
   },
-  fechaInicio: {
+  fechaIngreso: {
     type: Date,
     required: false,
   },
-  echaFin: {
+  fechaEgreso: {
     type: Date,
     required: false,
   },
