@@ -18,6 +18,10 @@ const resolversUser = {
       const usuario = await UserModel.findOne({ _id: args._id });
       return usuario;
     },
+    consultarEstudiantes: async (parent, args) => {
+      const estudiantes = await UserModel.find({rol: 'ESTUDIANTE'})
+      return estudiantes
+    }, 
   },
   Mutation: {
     crearUsuario: async (parent, args) => {

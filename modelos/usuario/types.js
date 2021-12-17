@@ -23,6 +23,7 @@ const typesUser = gql`
   type Query {
     Usuarios(filtro: FiltroUsuarios): [Usuario]
     Usuario(_id: String!): Usuario
+    consultarEstudiantes: [Usuario]
   }
   type Mutation {
     crearUsuario(
