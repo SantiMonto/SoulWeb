@@ -21,7 +21,11 @@ const resolversUser = {
     consultarEstudiantes: async (parent, args) => {
       const estudiantes = await UserModel.find({rol: 'ESTUDIANTE'})
       return estudiantes
-    }, 
+    },
+    consultarProyectosLiderados: async (parent, args) => {
+      const proyectosLiderados = await UserModel.find({ _id: args._id }).populate("proyectosLiderados")
+      return proyectosLiderados
+    }
   },
   Mutation: {
     crearUsuario: async (parent, args) => {

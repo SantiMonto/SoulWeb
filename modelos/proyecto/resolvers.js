@@ -1,6 +1,7 @@
 import { InscripcionModel } from "../inscripcion/inscription.js";
 import { UserModel } from "../usuario/user.js";
 import { ProjectModel } from "./project.js"
+import { AvanceModel } from "../avance/avances.js";
 
 const resolversProject = {
     Proyecto: {
@@ -16,12 +17,18 @@ const resolversProject = {
           });
           return inscripciones;
         },
+        avances: async (parent, args, context) => {
+          const avances = await AvanceModel.find({
+            proyecto: parent._id,
+          });
+          return avances;
+        },
       },
       Query: {
         Proyectos: async (parent, args, context) => {
           if (context.userData) {
             if (context.userData.rol === 'LIDER') {
-              const proyectos = await ProjectModel.find({ lider: context.userData._id });
+              const proyectos = await ProjectModel.find()
               console.log('es lider de', proyectos);
               return proyectos;
             }
