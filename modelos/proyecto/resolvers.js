@@ -36,6 +36,14 @@ const resolversProject = {
           const proyectos = await ProjectModel.find();
           return proyectos;
         },
+        Proyecto: async (parent, args, context) => {
+          const proyecto = await ProjectModel.findOne({ _id: args._id })
+          return proyecto
+        },
+        ProyectosInscritos: async (parent, args, context) => {
+          const proyectos = await ProjectModel.find({inscripciones: args._id})
+          return proyectos
+        }
       },
       Mutation: {
         crearProyecto: async (parent, args, context) => {

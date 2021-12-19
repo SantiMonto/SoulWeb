@@ -32,6 +32,21 @@ const resolversAvance = {
             { new: true });
             return avanceModificado;
         },
+        anadirObservacion: async (parents, args) => {
+            const observacion = await AvanceModel.findByIdAndUpdate(
+                args._id, {
+                $push: {observaciones: {texto: args.descripcion}}},
+            { new: true });
+            return observacion
+        },
+        modificarDescripcion: async (parents, args) => {
+            const avance = await AvanceModel.findByIdAndUpdate(
+                args._id, {
+                    descripcion: args.descripcion
+                },
+                {new: true});
+            return avance
+        }
     },
 }
 

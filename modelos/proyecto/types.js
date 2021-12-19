@@ -39,6 +39,8 @@ type Objetivo {
   }
   type Query {
     Proyectos: [Proyecto]
+    Proyecto(_id: String!): Proyecto
+    ProyectosInscritos(_id: String!): Proyecto
   }
   type Mutation {
     crearProyecto(
